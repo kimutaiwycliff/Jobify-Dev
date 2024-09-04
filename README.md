@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Job Application Tracker
+
+A modern job application tracking system built with Next.js, utilizing Shadcn components for UI, Prisma for database management, and Clerk for authentication. The application allows users to add, view, search, and analyze job applications with interactive charts using the Recharts library.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+
+## Features
+
+- **Add Job**: Easily add new job applications with relevant details.
+- **View All Jobs**: Display a list of all job applications with filtering and searching capabilities.
+- **Job Search**: Quickly find specific job applications using a search feature.
+- **Analytics Dashboard**: Visualize job application data with charts using the Recharts library.
+- **Theming**: Customize the look and feel of the application with Shadcn components.
+- **User Authentication**: Secure user login and registration using Clerk.
+
+## Tech Stack
+
+- **Frontend**: Next.js, TypeScript, React, Shadcn components
+- **Backend**: Prisma (for database interaction)
+- **Database**: Render (PostgreSQL)
+- **Authentication**: Clerk
+- **Data Fetching**: React Query
+- **Charts**: Recharts
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Make sure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (version 14 or higher)
+- npm or yarn
+- PostgreSQL (for local development, if not using Render)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/kimutaiwycliff/Jobify-Dev.git
+   cd Jobify-Dev
+2. Install dependencies:
+    ```bash
+    npm install
+3. Set up your environment variables. Create a .env file in the root directory and add the following:
+    ```bash
+    DATABASE_URL=your_database_url
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_frontend_api
+    CLERK_SECRET_KEY=your_clerk_api_key
+4. Run the Prisma migrations to set up your database:
+    ```bash
+    npx prisma migrate dev --name init
+5. Start the development server:
+    ```bash
+    npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```plaintext
+.
+├── src
+│   ├── components          # Reusable UI components
+│   ├── app                 # Next.js pages
+│   ├── prisma              # Prisma schema and migrations
+│   ├── lib                 # Utilities
+│   ├── utils               # Utility functions
+│   └── hooks               # Custom React hooks (e.g., for fetching jobs)
+├── .env                    # Environment variables
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project documentation
